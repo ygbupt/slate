@@ -64,38 +64,13 @@ All of the methods in the Vance AI API require authentication using an `api_toke
 
 <aside class="notice">
 ### Do not expose your API token publicly
+
 The api_token should not be exposed publicly, such as within your software /application or on your website, as this allows users access to any authenticated APIs documented here, and will cost your credits.
 </aside>
 
 # General
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
+Response Success Example
 
 > The above command returns JSON structured like this:
 
