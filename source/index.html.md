@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: Vance AI API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
@@ -9,7 +9,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - php
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://vanceai.com/sign-in/?method=sign_up'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -26,11 +26,7 @@ meta:
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Vance AI provides a suite of simple and flexible API endpoints to allow you to integrate our AI image processing features into your app or workflow.
 
 # Authentication
 
@@ -62,17 +58,16 @@ let api = kittn.authorize('meowmeowmeow');
 
 > Make sure to replace `meowmeowmeow` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+The Vance AI API requires authentication via an API token generated within your Vance AI account. You can find the API token in the tab of [API](https://vanceai.com/my-account/api/) on "My Account" page.
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+All of the methods in the Vance AI API require authentication using an `api_token`.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+### Do not expose your API token publicly
+The api_token should not be exposed publicly, such as within your software /application or on your website, as this allows users access to any authenticated APIs documented here, and will cost your credits.
 </aside>
 
-# Kittens
+# General
 
 ## Get All Kittens
 
