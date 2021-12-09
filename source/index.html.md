@@ -3,10 +3,10 @@ title: Vance AI API Document
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
+  - php
   - python
   - javascript
-  - php
+
 
 toc_footers:
   - <a href='https://vanceai.com/sign-in/?method=sign_up'>Sign Up for a Developer Key</a>
@@ -42,8 +42,6 @@ The api_token should not be exposed publicly, such as within your software /appl
 
 # General
 
-Response Success Example
-
 > HTTP/1.1 200 OK
 
 ```json
@@ -55,7 +53,7 @@ Response Success Example
 }
 ```
 
-Response Error Example
+Response Success Example
 
 > HTTP/1.1 200 OK
 
@@ -69,6 +67,7 @@ Response Error Example
 > OR
 
 > HTTP/1.1 200 OK
+
 ```json
 {
     "code": 10001, 
@@ -80,26 +79,9 @@ Response Error Example
 }
 ```
 
+Response Error Example
+
 ## Upload
-
-`POST` https://api-service.vanceai.com/web_api/v1/upload
-
-### Parameters
-
-Field | Type | Description
------ | ---- | -----------
-api_token | string | Your API token
-file | file | Image file object
-job | string | Optional for AI features. Example: 'ai' for AI features and 'compress' for Compressor.
-
-### Error Codes:
-
-Code | Description
----- | -----------
-10001 | Illegal parameter
-10010 | Internal error
-30001 | Invalid API token
-30004 | Limit Exceed
 
 ```php
 post("https://api-service.vanceai.com/web_api/v1/upload", [
@@ -133,6 +115,16 @@ else:
     print("Error:", r['code'], r['msg'])
 ```
 
+`POST` https://api-service.vanceai.com/web_api/v1/upload
+
+### Parameters
+
+Field | Type | Description
+----- | ---- | -----------
+api_token | string | Your API token
+file | file | Image file object
+job | string | Optional for AI features. Example: 'ai' for AI features and 'compress' for Compressor.
+
 > Response Success Example:
 
 ```json
@@ -144,28 +136,16 @@ else:
 }
 ```
 
-## Transform
-
-`POST` https://api-service.vanceai.com/web_api/v1/transform
-
-### Parameters
-
-Field | Type | Description
------ | ---- | -----------
-api_token | string | Your API token
-uid | string | ID of uploaded file
-jconfig | string | Transform parameter in json format (Required)
-
 ### Error Codes:
 
 Code | Description
 ---- | -----------
 10001 | Illegal parameter
 10010 | Internal error
-10011 | File doesn't exist
-10012 | Job exceeds limitation
-10013 | jparam parse error
-10014 | Job failed and exited for unexpected reason
+30001 | Invalid API token
+30004 | Limit Exceed
+
+## Transform
 
 ```php
 $http_client = new \GuzzleHttp\Client([
@@ -206,8 +186,17 @@ response = requests.post(
 r = response.json()
 if r['code'] == 200:
     print('uid:', r['data']['trans_id'])
-
 ```
+
+`POST` https://api-service.vanceai.com/web_api/v1/transform
+
+### Parameters
+
+Field | Type | Description
+----- | ---- | -----------
+api_token | string | Your API token
+uid | string | ID of uploaded file
+jconfig | string | Transform parameter in json format (Required)
 
 > Response Success Example:
 ```json
@@ -221,6 +210,17 @@ if r['code'] == 200:
 }
 ```
 
+### Error Codes:
+
+Code | Description
+---- | -----------
+10001 | Illegal parameter
+10010 | Internal error
+10011 | File doesn't exist
+10012 | Job exceeds limitation
+10013 | jparam parse error
+10014 | Job failed and exited for unexpected reason
+
 ## Progress
 
 `GET|POST` https://api-service.vanceai.com/web_api/v1/progress
@@ -231,13 +231,6 @@ Field | Type | Description
 ----- | ---- | -----------
 api_token | string | Your API token
 trans_id | string | ID in transform response
-
-### Error Codes:
-
-Code | Description
----- | -----------
-10001 | Illegal parameter
-10010 | Internal error
 
 > Response Success Example:
 ```json
@@ -250,24 +243,14 @@ Code | Description
 }
 ```
 
-## Download
-
-`GET|POST` https://api-service.vanceai.com/web_api/v1/download
-
-### Parameters
-
-Field | Type | Description
------ | ---- | -----------
-api_token | string | Your API token
-trans_id | string | ID in transform response
-
 ### Error Codes:
 
 Code | Description
 ---- | -----------
 10001 | Illegal parameter
 10010 | Internal error
-10011 | Invalid download link
+
+## Download
 
 ```php
 $remoteFileUrl = 'https://api-service.vanceai.com/web_api/v1/download?trans_id={trans_id_getted_from_transform_api}&api_token={YOUR_API_TOKEN}';
@@ -297,6 +280,23 @@ for chunk in response.iter_content(chunk_size=512):
         f.write(chunk)
 f.close()
 ```
+
+`GET|POST` https://api-service.vanceai.com/web_api/v1/download
+
+### Parameters
+
+Field | Type | Description
+----- | ---- | -----------
+api_token | string | Your API token
+trans_id | string | ID in transform response
+
+### Error Codes:
+
+Code | Description
+---- | -----------
+10001 | Illegal parameter
+10010 | Internal error
+10011 | Invalid download link
 
 ## Config Files
 
