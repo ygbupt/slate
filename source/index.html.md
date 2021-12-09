@@ -2,10 +2,10 @@
 title: Vance AI API Document
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
   - php
   - python
   - javascript
+  - shell
 
 
 toc_footers:
@@ -35,14 +35,13 @@ The Vance AI API requires authentication via an API token generated within your 
 All of the methods in the Vance AI API require authentication using an `api_token`.
 
 <aside class="notice">
-### Do not expose your API token publicly
-
+Do not expose your API token publicly.  
 The api_token should not be exposed publicly, such as within your software /application or on your website, as this allows users access to any authenticated APIs documented here, and will cost your credits.
 </aside>
 
 # General
 
-> HTTP/1.1 200 OK
+> Response Success Example
 
 ```json
 {
@@ -53,9 +52,7 @@ The api_token should not be exposed publicly, such as within your software /appl
 }
 ```
 
-Response Success Example
-
-> HTTP/1.1 200 OK
+> Response Error Example
 
 ```json
 {
@@ -65,8 +62,6 @@ Response Success Example
 ```
 
 > OR
-
-> HTTP/1.1 200 OK
 
 ```json
 {
@@ -79,9 +74,7 @@ Response Success Example
 }
 ```
 
-Response Error Example
-
-## Upload
+# Upload
 
 ```php
 post("https://api-service.vanceai.com/web_api/v1/upload", [
@@ -136,16 +129,7 @@ job | string | Optional for AI features. Example: 'ai' for AI features and 'comp
 }
 ```
 
-### Error Codes:
-
-Code | Description
----- | -----------
-10001 | Illegal parameter
-10010 | Internal error
-30001 | Invalid API token
-30004 | Limit Exceed
-
-## Transform
+# Transform
 
 ```php
 $http_client = new \GuzzleHttp\Client([
@@ -199,6 +183,7 @@ uid | string | ID of uploaded file
 jconfig | string | Transform parameter in json format (Required)
 
 > Response Success Example:
+
 ```json
 {
     "code": 200,
@@ -210,18 +195,7 @@ jconfig | string | Transform parameter in json format (Required)
 }
 ```
 
-### Error Codes:
-
-Code | Description
----- | -----------
-10001 | Illegal parameter
-10010 | Internal error
-10011 | File doesn't exist
-10012 | Job exceeds limitation
-10013 | jparam parse error
-10014 | Job failed and exited for unexpected reason
-
-## Progress
+# Progress
 
 `GET|POST` https://api-service.vanceai.com/web_api/v1/progress
 
@@ -233,6 +207,7 @@ api_token | string | Your API token
 trans_id | string | ID in transform response
 
 > Response Success Example:
+
 ```json
 {
     "code": 200,
@@ -243,14 +218,7 @@ trans_id | string | ID in transform response
 }
 ```
 
-### Error Codes:
-
-Code | Description
----- | -----------
-10001 | Illegal parameter
-10010 | Internal error
-
-## Download
+# Download
 
 ```php
 $remoteFileUrl = 'https://api-service.vanceai.com/web_api/v1/download?trans_id={trans_id_getted_from_transform_api}&api_token={YOUR_API_TOKEN}';
@@ -290,14 +258,6 @@ Field | Type | Description
 api_token | string | Your API token
 trans_id | string | ID in transform response
 
-### Error Codes:
-
-Code | Description
----- | -----------
-10001 | Illegal parameter
-10010 | Internal error
-10011 | Invalid download link
-
-## Config Files
+# Config Files
 
 Download the [Config Files](https://c.vanceai.com/config/infer_api/API_JSON_CONFIG.zip) here.
