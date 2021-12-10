@@ -9,8 +9,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 
 toc_footers:
-  - <a href='https://vanceai.com/sign-in/?method=sign_up'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - <a href='https://vanceai.com/sign-in/?method=sign_up' target="_blank">Sign Up for a Developer API Key</a>
 
 includes:
   - errors
@@ -76,6 +75,8 @@ The api_token should not be exposed publicly, such as within your software /appl
 
 # Upload
 
+> Request body
+
 ```php
 post("https://api-service.vanceai.com/web_api/v1/upload", [
   'multipart' => [
@@ -93,6 +94,7 @@ post("https://api-service.vanceai.com/web_api/v1/upload", [
 echo $res->getBody()->getContents();
 
 ```
+
 ```python
 # Requires "requests" to be installed (see python-requests.org)
 import requests
@@ -130,6 +132,8 @@ job | string | Optional for AI features. Example: 'ai' for AI features and 'comp
 ```
 
 # Transform
+
+> Request body
 
 ```php
 $http_client = new \GuzzleHttp\Client([
@@ -219,6 +223,8 @@ trans_id | string | ID in transform response
 ```
 
 # Download
+
+> Request body
 
 ```php
 $remoteFileUrl = 'https://api-service.vanceai.com/web_api/v1/download?trans_id={trans_id_getted_from_transform_api}&api_token={YOUR_API_TOKEN}';
