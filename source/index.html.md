@@ -99,7 +99,7 @@ echo $res->getBody()->getContents();
 # Requires "requests" to be installed (see python-requests.org)
 import requests
 response = requests.post(
-    'https://api-servie.vanceai.com/web_api/v1/upload',
+    'https://api-service.vanceai.com/web_api/v1/upload',
     files={'file': open('{SOURCE_IMAGE_FILE_PATH}', 'rb')},
     data={'api_token': '{YOUR_API_TOKEN}'},
 )
