@@ -555,6 +555,23 @@ html, body {
   }
 }
 
+p.endpoint {
+    color: #fff;
+    background: #282828;
+    margin: 20px calc(50% + 20px) 20px 20px;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: scroll;
+    white-space: nowrap;
+}
+
+p.endpoint code {
+    background: #ccc;
+    color: #333;
+    padding: 4px 8px;
+    margin-right: 10px;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // RESPONSIVE DESIGN
 ////////////////////////////////////////////////////////////////////////////////
