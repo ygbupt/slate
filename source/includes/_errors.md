@@ -1,4 +1,4 @@
-## Errors
+# Errors
 
 > Response Error Example
 

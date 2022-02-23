@@ -1,8 +1,8 @@
-## API Management
+# API Management
 
-### API Usage
+## API Usage
 
-#### Check credit balance
+### Check credit balance
 
 > Request body
 
@@ -28,7 +28,7 @@ curl -X GET "https://api-service.vanceai.com/web_api/v1/point?api_token=12345678
 
 You can use this endpoint to query your credit balance.
 
-##### Parameters
+#### Parameters
 
 Field | Type | Description
 ----- | ---- | -----------
@@ -38,7 +38,7 @@ api_token | string | Your API token
 Unused credits do not roll-over and will reset at every billing day.
 </aside>
 
-#### Credit usage history
+### Credit usage history
 
 > Request body
 
@@ -79,7 +79,7 @@ curl -X POST "https://api-service.vanceai.com/web_api/v1/points/record" \
 
 You can use this endpoint to query your credit usage history.
 
-##### Parameters
+#### Parameters
 
 Field | Type | Description
 ----- | ---- | -----------
@@ -87,7 +87,7 @@ api_token | string | Your API token
 page | numeric | [Optional] The xth page of pagination. Default: 1
 limit |	numeric | [Optional] The number of items to display per page. Default: 20
 
-### Credit Costs
+## Credit Costs
 
 Each AI feature has its own value. Currently all of the features will cost 0.2 credits when the transform status is `finish`. 
 

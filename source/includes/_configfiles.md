@@ -1,14 +1,14 @@
-## Config Files
+# Config Files
 
 VanceAI currently has 12 AI features for image enhancement, each one has one config file at least. And we are continue to add more AI features which will cover the fields of image, video and music.
 
 Generally, all the config files have a fixed structure. let's take an example by using AI Enlarger.
 
-### Structure of config file
+## Structure of config file
 
 Configuration is required when calling transform endpoint. VanceAI supports single feature mode and workflow (combination of multiple steps) mode.
 
-#### Single Feature
+### Single Feature
 
 > Single Feature Configuration
 
@@ -47,7 +47,7 @@ To process an image, you will need to send a job to the cloud server. We use `jo
 
 In the `config`, we config which `module` to use and the related `module_params`. And in the `out_params`, it defines some parameters of the output file, such as the format, quality and dpi.
 
-#### Workflow
+### Workflow
 
 > Workflow Configuration
 
@@ -113,7 +113,7 @@ Note:
   </ul>
 </aside>
 
-#### Supported output parameters
+### Supported output parameters
 
 Settings | Type | Example | Note
 -------- | ---- | ------- | ----
@@ -122,9 +122,9 @@ DPI | int | {"dpi": 300} | The range is 0-2000 (suggested). Generally, 300 or 35
 Format | string | {"format": "png"} | Now we only accept `jpg` and `png`.
 Background Color | int | {"bg_composed": {"bg_color": {"r": 0, "g": 255, "b": 255}}} | This can be used to set a solid background color to the background removed photo.
 
-### Description of config file
+## Description of config file
 
-#### AI Image Enlarger
+### AI Image Enlarger
 
 > AI Image Enlarger
 
@@ -156,7 +156,7 @@ suppress_noise | 0 - 100 |
 remove_blur | 0 - 100 | 
 scale | 2x, 4x, 6x, 8x | 
 
-#### AI Image Denoiser 
+### AI Image Denoiser 
 
 > AI Image Denoiser
 
@@ -186,7 +186,7 @@ auto_params | true or false | If true, then `remove_noise` and `sharpen` will be
 remove_noise | 0 - 100 | 
 sharpen | 0 - 100 | 
 
-#### AI Image Sharpener 
+### AI Image Sharpener 
 
 > AI Image Sharpener
 
@@ -214,7 +214,7 @@ auto_params | true or false | If true, then `sharpeness` and `suppress_noise` wi
 sharpeness | 0 - 100 | 
 suppress_noise | 0 - 100 | 
 
-#### AI Background Remover 
+### AI Background Remover 
 
 > AI Background Remover
 
@@ -238,7 +238,7 @@ module | matting |
 model_name | MattingStable | 
 rescale | 532 | The internal code of the recognition accuracy.
 
-#### AI Anime Upscaler 
+### AI Anime Upscaler 
 
 > AI Anime Upscaler - waifu
 
@@ -290,7 +290,7 @@ module | real_esrgan |
 model_name | RealEsrganStable | 
 scale | 1x, 2x, 4x, 6x, 8x | If selected 1x, it will only enhance the quality without enlargement.
 
-#### AI JPEG Artifacts Remover
+### AI JPEG Artifacts Remover
 
 > AI JPEG Artifacts Remover
 
@@ -314,7 +314,7 @@ module | hinet_jpeg |
 model_name | HinetStable | 
 deblur | true or false | An option for if you want to deblur the image.
 
-#### AI Photo Dehaze
+### AI Photo Dehaze
 
 > AI Photo Dehaze
 
@@ -357,7 +357,7 @@ model_name | DehazingStable |
 contrast | 0.0 - 2.0 | Set the contrast of output image. Default: `1`
 brightness | 0 - 100 | Set the brightness of output image. Default: `20`
 
-#### AI Photo Restorer
+### AI Photo Restorer
 
 > AI Photo Restorer
 
@@ -383,7 +383,7 @@ model_name | RepairStable |
 with_scratch | true or false | Set to `true` to remove scratches.
 inpainting | true or false | Set to `true` to inpaint damaged area.
 
-#### Toongineer Cartoonizer
+### Toongineer Cartoonizer
 
 > Toongineer Cartoonizer
 
@@ -405,7 +405,7 @@ job | cartoonize |
 module | cartoonize | 
 model_name | CartoonizeStable | 
 
-#### VancePortrait
+### VancePortrait
 
 > VancePortrait - AnimeGANv2
 
@@ -479,7 +479,7 @@ You can use the preset value below:
 2 | Sigma: 2, Alpha: 0.5 | Sigma: 10, Alpha: 0.5 | Sigma: 20, Alpha: 0.5
 3 | Sigma: 2, Alpha: 0.75 | Sigma: 10, Alpha: 0.75 | Sigma: 20, Alpha: 0.75
 
-#### AI Photo Colorizer
+### AI Photo Colorizer
 
 > AI Photo Colorizer
 
@@ -503,7 +503,7 @@ module | colorize or deoldify | `colorize` is fast but `deoldify` has a better o
 model_name | ColorizeStable_pth or ColorizeStable | deoldify -> ColorizeStable_pth, colorize -> ColorizeStable
 render_factor | 0 - 40 | Default: 30 for `deoldify` and 10 for `colorize`
 
-#### AI Photo Retoucher
+### AI Photo Retoucher
 
 > AI Photo Retoucher
 
@@ -525,6 +525,6 @@ job | perfect |
 module | perfect |  
 model_name | perfect_2k | 
 
-#### Download Config Files
+### Download Config Files
 
 Download the [Config Files](https://c.vanceai.com/config/infer_api/API_JSON_CONFIG.zip) here.
