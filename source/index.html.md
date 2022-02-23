@@ -24,11 +24,11 @@ meta:
     content: API Documents shows you information about Vance AI API. Learn more to integrate our AI image processing features into your app or workflow.
 ---
 
-## Introduction
+# Introduction
 
 Vance AI provides a suite of simple and flexible API endpoints to allow you to integrate our AI image processing features into your app or workflow.
 
-## Authentication
+# Authentication
 
 The Vance AI API requires authentication via an API token generated within your Vance AI account. You can find the API token in the tab of [API & Document](https://vanceai.com/my-account/api/) on "My Account" page.
 
@@ -41,7 +41,7 @@ In this document we use  `1234567890abcdefg` as the `api_token`.
 The api_token should not be exposed publicly, such as within your software /application or on your website, as this allows users access to any authenticated APIs documented here, and will cost your credits.
 </aside>
 
-## Upload image
+# Upload image
 
 > Request body
 
@@ -140,7 +140,7 @@ api_token | string | Your API token
 file | file | Image file object
 job | string | Optional for AI features. Example: 'ai' for AI features and 'compress' for Compressor.
 
-## Process image
+# Process image
 
 > Request body
 
@@ -271,7 +271,7 @@ If your server responds with error (status code ≥ 400), we will continue to ca
 If all 3 attampts are failed, then you will not receive any message from us. The only way to check the processing status is by calling <code>progress</code> endpoint.
 </aside>
 
-## Check the progress
+# Check the progress
 
 > Request body
 
@@ -332,7 +332,7 @@ Field | Type | Description
 api_token | string | Your API token
 trans_id | string | ID in transform response
 
-## Download result
+# Download result
 
 > Request body
 
