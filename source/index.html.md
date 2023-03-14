@@ -252,6 +252,7 @@ waiting | Your job is waiting to be assigned in the queue, all servers are busy,
 fatal | Your job is failed, you can try again or contact us.
 process | Your job is still being processed, please wait a secend.
 webhook | You see this status, because you provided the webhook url, so it means the processing result will be sent via webhook.
+busy | It means your job is in the queue, you may need to call "progress" to query the status in a fixed frequency, such as to query the status ever 2 seconds.
 
 ### Webhook
 

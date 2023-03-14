@@ -218,6 +218,8 @@ suppress_noise | 0 - 100 |
 
 > AI Background Remover
 
+This config is mainly for object coutout.
+
 ```json
 {
 	"job": "matting",
@@ -237,6 +239,30 @@ job | matting |
 module | matting | 
 model_name | MattingStable | 
 rescale | 532 | The internal code of the recognition accuracy.
+
+> AI Portrait Background Remover
+
+This config is specified to human portait cutout.
+
+```json
+{
+	"job": "matting",
+	"config": {
+		"module": "portrait_matting",
+		"module_params": {
+			"model_name": "PortraitMattingStable",
+			"no_face_blur": false
+		}
+	}
+}
+```
+
+Key | Value | Description
+--- | ----- | -----------
+job | matting | 
+module | portrait_matting | 
+model_name | PortraitMattingStable | 
+no_face_blur | false |
 
 ### AI Anime Upscaler 
 
