@@ -20,7 +20,7 @@ curl -X GET "https://api-service.vanceai.com/web_api/v1/point?api_token=12345678
         "max_num": "500.000", // Total Credits
         "used_num": "107.800" // Used Credits
     },
-    "ip": "54.103.172.45"
+    "ip": "54.103.172.34"
 }
 ```
 
